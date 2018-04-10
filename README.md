@@ -84,3 +84,9 @@ The following results can be achieved using the (normal) Transformer model.
 | Neural Phrase-based Machine Translation + LM [Huang et. al. (2017)](https://arxiv.org/abs/1706.05565) | 28.07
 | Transformer (Base)                                                                                    | **28.12** (cased)
 | Transformer (Base)                                                                                    | **28.97** (uncased)
+
+## *TensorBoard*
+
+The following figure shows some nice graphs from *TensorBoard* for training.
+
+![TensorBoard English-Vietnamese](tensorboard_envi.png)
