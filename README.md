@@ -34,13 +34,15 @@ In the next step, the training and development datasets are downloaded and
 prepared:
 
 ```bash
-t2t-datagen --data_dir=t2t_data --tmp_dir=t2t_datagen/ --problem=translate_envi_iwslt32k
+t2t-datagen --data_dir=t2t_data --tmp_dir=t2t_datagen/ \
+--problem=translate_envi_iwslt32k
 ```
 
 Then the training step can be started:
 
 ```bash
-t2t-trainer --data_dir=t2t_data --problems=translate_envi_iwslt32k --model=transformer --hparams_set=transformer_base --output_dir=t2t_output
+t2t-trainer --data_dir=t2t_data --problems=translate_envi_iwslt32k \
+--model=transformer --hparams_set=transformer_base --output_dir=t2t_output
 ```
 
 The number of GPUs used for training can be specified with the `--worker_gpu`
