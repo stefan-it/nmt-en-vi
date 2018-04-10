@@ -75,6 +75,7 @@ t2t-bleu --translation=system.output --reference=tst2013.en
 ## Results
 
 The following results can be achieved using the (normal) Transformer model.
+Training was done on a NVIDIA GTX-1060 for 125k steps.
 
 | Model                                                                                                 | BLEU (Beam Search)
 | ----------------------------------------------------------------------------------------------------- | ------------------
