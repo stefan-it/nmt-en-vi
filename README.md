@@ -90,3 +90,31 @@ The following results can be achieved using the (normal) Transformer model.
 The following figure shows some nice graphs from *TensorBoard* for training.
 
 ![TensorBoard English-Vietnamese](tensorboard_envi.png)
+
+## Pretrained model
+
+To reproduce the reported results, a pretrained model can be downloaded using:
+
+```bash
+wget https://schweter.eu/cloud/nmt-en-vi/envi-model.ckpt-125001.tar.xz
+```
+
+The pretrained model has a (compressed) filesize of 720M. After the download
+process, the archive must be uncompressed with:
+
+```bash
+tar -xJf envi-model.ckpt-125001.tar.xz
+```
+
+All necessary files are located in the `export` folder.
+
+The pretrained model can be invoked by using the `--checkpoint_path` commandline
+argument of the `t2t-decoder` tool. E.g. the complete command for the test
+dataset using the pretrained model is:
+
+```bash
+t2t-decoder --data_dir=t2t_data --problems=translate_envi_iwslt32k \
+--model=transformer --decode_hparams="beam_size=4,alpha=0.6"
+--decode_from_file=tst2013.en --decode_to_file=system.output
+--hparams_set=transformer_base --checkpoint_path export/model.ckpt-125001
+```
