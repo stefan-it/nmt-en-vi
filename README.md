@@ -71,7 +71,7 @@ t2t-decoder --data_dir=t2t_data --problems=translate_envi_iwslt32k \
 The BLEU-score can be calculated with the built-in `t2t-bleu` tool:
 
 ```bash
-t2t-bleu --translation=system.output --reference=tst2013.en
+t2t-bleu --translation=system.output --reference=tst2013.vi
 ```
 
 ## Results
