@@ -61,8 +61,8 @@ Then the decoding step for the test dataset can be started:
 
 ```bash
 t2t-decoder --data_dir=t2t_data --problems=translate_envi_iwslt32k \
---model=transformer --decode_hparams="beam_size=4,alpha=0.6"
---decode_from_file=tst2013.en --decode_to_file=system.output
+--model=transformer --decode_hparams="beam_size=4,alpha=0.6"  \
+--decode_from_file=tst2013.en --decode_to_file=system.output  \
 --hparams_set=transformer_base --output_dir=t2t_output/
 ```
 
