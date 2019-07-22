@@ -23,7 +23,7 @@ library. This problem was officially added with [this pull request](https://gith
 ## Training (Transformer base)
 
 The following training steps are tested with *tensor2tensor* in version
-*1.9.0*.
+*1.13.4*.
 
 First, we create the initial directory structure:
 
@@ -94,15 +94,8 @@ model. Training was done on a NVIDIA RTX 2080 TI for 50k steps.
 | Sequence-to-sequence model with attention                                                             | 26.10
 | Neural Phrase-based Machine Translation [Huang et. al. (2017)](https://arxiv.org/abs/1706.05565)      | 27.69
 | Neural Phrase-based Machine Translation + LM [Huang et. al. (2017)](https://arxiv.org/abs/1706.05565) | 28.07
-| Transformer (Base)                                                                                    | **28.43** (cased)
-| Transformer (Base)                                                                                    | **29.31** (uncased)
-
-## *TensorBoard*
-
-The following figure shows some nice graphs from *TensorBoard* for
-training.
-
-![TensorBoard English-Vietnamese](tensorboard_envi.png)
+| Transformer (Base)                                                                                    | **28.54** (cased)
+| Transformer (Base)                                                                                    | **29.44** (uncased)
 
 ## Pretrained model
 
@@ -110,17 +103,17 @@ To reproduce the reported results, a pretrained model can be downloaded
 using:
 
 ```bash
-wget https://schweter.eu/cloud/nmt-en-vi/envi-model.avg-50000.tar.xz
+wget https://schweter.eu/cloud/nmt-en-vi/envi-model.avg-250000.tar.xz
 ```
 
-The pretrained model has a (compressed) filesize of 633M. After the
+The pretrained model has a (compressed) filesize of 553M. After the
 download process, the archive must be uncompressed with:
 
 ```bash
-tar -xJf envi-model.avg-50000.tar.xz
+tar -xJf envi-model.avg-250000.tar.xz
 ```
 
-All necessary files are located in the `t2t_avg` folder.
+All necessary files are located in the `t2t_export` folder.
 
 The pretrained model can be invoked by using the `--checkpoint_path`
 commandline argument of the `t2t-decoder` tool. E.g. the complete
@@ -130,5 +123,16 @@ command for the test dataset using the pretrained model is:
 t2t-decoder --data_dir=t2t_data --problem=translate_envi_iwslt32k \
 --model=transformer --decode_hparams="beam_size=4,alpha=0.6" \
 --decode_from_file=tst2013.en --decode_to_file=system.output \
---hparams_set=transformer_base --checkpoint_path t2t_avg/model.ckpt-50000
+--hparams_set=transformer_base \
+--checkpoint_path t2t_export/model.ckpt-250000
 ```
+
+# Mentions
+
+This repository was mentioned and citet in the NeurIPS paper
+[Adaptive Methods for Nonconvex Optimization](https://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization.pdf)
+by Zaheer et al. (2018).
+
+# Acknowledgments
+
+Research supported with Cloud TPUs from Google's TensorFlow Research Cloud (TFRC).
