@@ -127,6 +127,12 @@ t2t-decoder --data_dir=t2t_data --problem=translate_envi_iwslt32k \
 --checkpoint_path t2t_export/model.ckpt-250000
 ```
 
+# Mentions
+
+This repository was mentioned and citet in the NeurIPS paper
+[Adaptive Methods for Nonconvex Optimization](https://papers.nips.cc/paper/8186-adaptive-methods-for-nonconvex-optimization.pdf)
+by Zaheer et al. (2018).
+
 # Acknowledgments
 
 Research supported with Cloud TPUs from Google's TensorFlow Research Cloud (TFRC).
